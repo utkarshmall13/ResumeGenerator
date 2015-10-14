@@ -1,0 +1,4 @@
+<servlet-mapping>
+    <servlet-name>pdfViewer</servlet-name>
+    <url-pattern>pdfViewer.java</url-pattern>
+</servlet-mapping>
