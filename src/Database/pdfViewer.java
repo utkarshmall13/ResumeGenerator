@@ -13,11 +13,11 @@ import java.nio.file.Files;
 @WebServlet("/pdfViewer")
 public class pdfViewer extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("aaa");
-    	File file = new File("/home/utkarsh/resume.pdf");
+    	System.out.println("asd");
+    	File file = new File("/home/utkarsh/resumeG/temp.pdf");
         response.setHeader("Content-Type", getServletContext().getMimeType(file.getName()));
         response.setHeader("Content-Length", String.valueOf(file.length()));
-        response.setHeader("Content-Disposition", "inline; filename=\"resume.pdf\"");
+        response.setHeader("Content-Disposition", "inline; filename=\"temp.pdf\"");
         Files.copy(file.toPath(), response.getOutputStream());
     }
 }

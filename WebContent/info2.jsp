@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="Database.LoginAccess" %>
+<%@ page import="Database.Backend" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,7 +21,7 @@ if(username==null || username.equalsIgnoreCase("")){
 int aa_count=Integer.parseInt(request.getParameter("aa_count"));
 int proj_count=Integer.parseInt(request.getParameter("proj_count"));
 int skill_count=Integer.parseInt(request.getParameter("skill_count"));
-
+int ec_count=Integer.parseInt(request.getParameter("ec_count"));
 
 ArrayList<String> aad=new ArrayList<String>();
 ArrayList<String> aat=new ArrayList<String>();
@@ -36,6 +37,10 @@ ArrayList<String> projd4=new ArrayList<String>();
 
 ArrayList<String> skilln=new ArrayList<String>();
 ArrayList<String> skills=new ArrayList<String>();
+
+ArrayList<String> ecd=new ArrayList<String>();
+ArrayList<String> ect=new ArrayList<String>();
+
 
 for(int i=0;i<aa_count;i++){
 	aad.add(request.getParameter("aad"+Integer.toString(i+1)));
@@ -58,6 +63,28 @@ for(int i=0;i<skill_count;i++){
 	skills.add(request.getParameter("skills"+Integer.toString(i+1)));
 }
 
+for(int i=0;i<ec_count;i++){
+	ecd.add(request.getParameter("ecd"+Integer.toString(i+1)));
+	ect.add(request.getParameter("ect"+Integer.toString(i+1)));
+}
+
+ArrayList < ArrayList<String> > resumeData=new ArrayList <ArrayList<String> >();
+resumeData.add(aad);
+resumeData.add(aat);
+resumeData.add(projT);
+resumeData.add(projt);
+resumeData.add(projg);
+resumeData.add(projc);
+resumeData.add(projd1);
+resumeData.add(projd2);
+resumeData.add(projd3);
+resumeData.add(projd4);
+resumeData.add(skilln);
+resumeData.add(skills);
+resumeData.add(ecd);
+resumeData.add(ect);
+Backend.printToFile(resumeData);
+Backend.createResume(resumeData);
 response.sendRedirect("info.jsp");
 %>
 </body>

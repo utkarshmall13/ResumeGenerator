@@ -6,20 +6,60 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Resume Generator</title>
+<title>Resume Generator Signup</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form  action="signedin.jsp" method="post">
-Username: <input type="text" name="username"><br>
-Password: <input type="password" name="password"><br>
-Confirm Password: <input type="password" name="password2"><br>
-Name: <input type="text" name="fname"><br>
-Middle Name: <input type="text" name="mname"><br>
-Last Name: <input type="text" name="lname"><br>
-Roll Number: <input type="text" name="rollno"><br>
-DOB(DD/MM/YYYY): <input type="date" name="dob" value="01/01/1995"><br>
-Sex:<input type="radio" name="sex" value="male">male &nbsp &nbsp &nbsp &nbsp <input type="radio" name="sex" value="male">female<br>
-<input type="submit" value="Signup"></input><br>
+<h3>Enter your informations</h3>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-6"></div>
+  <div class="col-sm-6">
+<form  role="form" action="signedin.jsp" method="post">
+<div class="form-group"> 
+	<label for="username">Username:</label>
+	<input class="form-control" type="text" name="username">
+</div>
+<div class="form-group"> 
+	<label for="password">Password:</label>
+	<input class="form-control" type="password" name="password">
+</div>
+<div class="form-group"> 
+	<label for="password2">Confirm Password:</label> 
+	<input class="form-control" type="password" name="password2">
+</div>
+<div class="form-group"> 
+	<label for="fname">Name:</label> 
+	<input class="form-control" type="text" name="fname">
+</div>
+<div class="form-group">
+	<label for="mname">Middle Name:</label> 
+	<input class="form-control" type="text" name="mname">
+</div>
+<div class="form-group">
+ 	<label for="mname">Last Name:</label>
+	<input class="form-control" type="text" name="lname">
+</div>
+<div class="form-group"> 
+ 	<label for="rollno"> Roll Number:</label>
+	<input class="form-control" type="text" name="rollno">
+</div>
+<div class="form-group">  
+	<label for="dob">DOB(MM/DD/YYYY):</label>
+	<input class="form-control" type="date" name="dob" value="01/01/1995">
+</div>
+<div class="form-group">
+	<label for="dob">Sex:</label>
+	<label class="radio-inline"><input type="radio" name="sex" value="male">male</label>
+	<label class="radio-inline"><input type="radio" name="sex" value="male">female</label>
+</div>
+<div class="form-group">
+<input class="btn btn-primary" type="submit" value="Signup"></input><br>
+</div>
 </form>
 <%
 if(session.getAttribute("err")=="alreadypresent"){
@@ -31,5 +71,8 @@ else if(session.getAttribute("err")=="univerr"){
 	session.setAttribute("err","");
 }
 %>
+</div>
+</div>
+</div>
 </body>
 </html>
